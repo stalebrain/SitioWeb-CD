@@ -1,4 +1,6 @@
-<script setup>
+<script setup lang="ts">
+import type { NavigationMenuItem } from '@nuxt/ui'
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -22,21 +24,37 @@ useSeoMeta({
   ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
   twitterCard: 'summary_large_image'
 })
+
+const items = ref<NavigationMenuItem[][]>([
+  [
+    {
+      label: 'INICIO',
+      icon: 'i-lucide-box',
+      to: '/docs/getting-started'
+    },
+    {
+      label: 'MENÚ',
+      icon: 'i-lucide-book-open',
+      to: '/docs/composables'
+    },
+    {
+      label: 'NOSOTROS',
+      icon: 'i-lucide-user',
+      to: '/docs/components',
+      active: true
+    }
+  ]
+])
 </script>
 
 <template>
   <UApp>
-    <UHeader>
-      <template #left>
-        <NuxtLink to="/">
-          <AppLogo class="w-auto h-6 shrink-0" />
-        </NuxtLink>
-
-        <TemplateMenu />
+    <UHeader class="bg-[#e52463] text-[#ffffff]">
+      <template #title>
+        Taquería: El Callejón de Dany
       </template>
-
       <template #right>
-        <NavigationMenuItem />
+        <UNavigationMenu color="primary" :items="items" />
       </template>
     </UHeader>
 
