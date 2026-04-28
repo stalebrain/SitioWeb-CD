@@ -1,8 +1,22 @@
+<script setup lang="ts">
+const items = [
+  'https://picsum.photos/468/468?random=1',
+  'https://picsum.photos/468/468?random=2',
+  'https://picsum.photos/468/468?random=3',
+  'https://picsum.photos/468/468?random=4',
+  'https://picsum.photos/468/468?random=5',
+  'https://picsum.photos/468/468?random=6'
+]
+</script>
+
 <template>
   <div>
-    <UPageHero
-      title="Taquería: El Callejón de Dany"
-    />
+    <UPageHero class="hero-bg">
+      <template #title>
+        Taquería: El Callejón de Dany
+      </template>
+    </UPageHero>
+    <hr class="bg-[#309bb5]">
 
     <UPageSection
       id="features"
@@ -35,26 +49,27 @@
       }]"
     />
 
-    <UPageSection>
-      <UPageCTA
-        title="Ready to build your next Nuxt app?"
-        description="Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start shipping today."
-        variant="subtle"
-        :links="[{
-          label: 'Start building',
-          to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
-          target: '_blank',
-          trailingIcon: 'i-lucide-arrow-right',
-          color: 'neutral'
-        }, {
-          label: 'View on GitHub',
-          to: 'https://github.com/nuxt-ui-templates/starter',
-          target: '_blank',
-          icon: 'i-simple-icons-github',
-          color: 'neutral',
-          variant: 'outline'
-        }]"
-      />
-    </UPageSection>
+    <p class="text-4xl font-bold text-center text-white">
+      EXPLORA NUESTRO SABOR!
+    </p>
+
+    <UCarousel
+      v-slot="{ item }"
+      loop
+      arrows
+      auto-scroll
+      :items="items"
+      :ui="{ container: 'gap-0', item: 'basis-1/5' }"
+    >
+      <img
+        :src="item"
+        width="234"
+        height="234"
+        class="rounded-lg my-20"
+        loading="lazy"
+      >
+    </UCarousel>
+
+    <hr class="h-2 bg-[#e52463] my-8">
   </div>
 </template>

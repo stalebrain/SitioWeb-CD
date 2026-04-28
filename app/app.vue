@@ -58,13 +58,11 @@ const items = ref<NavigationMenuItem[][]>([
       </template>
     </UHeader>
 
-    <UMain>
+    <UMain class="bg-[#fac51c]">
       <NuxtPage />
     </UMain>
 
-    <USeparator icon="i-simple-icons-nuxtdotjs" />
-
-    <UFooter>
+    <UFooter class="my-10">
       <template #left>
         <p class="text-sm text-muted">
           Built with Nuxt UI • © {{ new Date().getFullYear() }}
@@ -75,8 +73,16 @@ const items = ref<NavigationMenuItem[][]>([
         <UButton
           to="https://github.com/nuxt-ui-templates/starter"
           target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
+          icon="i-simple-icons-facebook"
+          aria-label="Facebook"
+          color="neutral"
+          variant="ghost"
+        />
+        <UButton
+          to="https://github.com/nuxt-ui-templates/starter"
+          target="_blank"
+          icon="i-simple-icons-instagram"
+          aria-label="Instagram"
           color="neutral"
           variant="ghost"
         />
